@@ -17,7 +17,7 @@ class Chat extends React.Component {
 
         this.sendMessage = this.sendMessage.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
-        this.socket = io.connect("http://localhost:5000");
+        this.socket = io.connect();
         this.getMessages().then(messages => {
             this.setState({messages: messages.reverse()});
         });
