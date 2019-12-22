@@ -2,7 +2,7 @@ language: node_js
 node_js:
   - "stable"
 install:
-  - npm run build --prefix ./client
+  - npm run --prefix ./client build
 script:
   - npm run deploy
 after_success:
