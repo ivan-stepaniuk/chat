@@ -12,5 +12,8 @@
   "scripts": {
     "start": "node index.js"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "engines": {
+    "node": "8"
+  }
 }
