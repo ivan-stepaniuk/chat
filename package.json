@@ -18,7 +18,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build --release",
     "deploy": "npx firebase deploy --token $FIREBASE_TOKEN",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
