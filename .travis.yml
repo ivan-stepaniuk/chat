@@ -4,10 +4,6 @@ node_js:
 cache:
   directories:
     - node_modules
-script:
-  - cd client
-  - npm run build
-  - cd ..
-  - npm run deploy
+script: bash deploy.sh
 after_success:
   - npm run start
