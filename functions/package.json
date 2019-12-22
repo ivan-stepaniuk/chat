@@ -10,8 +10,7 @@
     "socket.io": "^1.7.3"
   },
   "scripts": {
-    "start": "node index.js",
-    "deploy": "npx firebase deploy --token $FIREBASE_TOKEN"
+    "start": "node index.js"
   },
   "devDependencies": {}
 }
