@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function Header(props) {
     const classes = useStyles();
-    const [auth, setAuth] = React.useState(props.authorized);
+    const [auth] = React.useState(props.authorized);
 
     return (
         <div className={classes.root}>
