@@ -4,6 +4,7 @@ node_js:
 script:
   - npm install --prefix ./client
   - npm run --prefix ./client build
+  - npm install
   - npm run deploy
 after_success:
   - npm run start
