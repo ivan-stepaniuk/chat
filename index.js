@@ -9,17 +9,13 @@ const firebaseConfig = require("./config/config.json");
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
-app.use(express.static(__dirname + '/client/build'));
+app.use(express.static(path.join(__dirname + '/client/build')));
 
 io.on('connection', function (socket) {
     socket.on('chat message', function (data) {
         const messageData = JSON.parse(data);
-        let setDoc = db.collection('messages').doc().set(messageData);
+        db.collection('messages').doc().set(messageData);
 
         io.emit('chat message', data);
     });
-});
-
-http.listen(port, function () {
-    console.log('listening on *:' + port);
 });
