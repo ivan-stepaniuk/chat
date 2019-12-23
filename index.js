@@ -3,7 +3,7 @@ const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 const port = process.env.PORT || 5000;
-
+const path = require('path');
 const firebase = require('firebase');
 const firebaseConfig = require("./config/config.json");
 firebase.initializeApp(firebaseConfig);
@@ -18,4 +18,8 @@ io.on('connection', function (socket) {
 
         io.emit('chat message', data);
     });
+});
+
+http.listen(port, function () {
+    console.log('listening on *:' + port);
 });
