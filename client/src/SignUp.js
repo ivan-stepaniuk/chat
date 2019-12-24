@@ -1,4 +1,5 @@
 import React from 'react';
+import {Redirect} from "react-router-dom";
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
@@ -8,7 +9,6 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import firebase from "firebase";
 import {db} from "./index.js";
-
 export default class SignUp extends React.Component {
     constructor(props) {
         super(props);
@@ -26,7 +26,7 @@ export default class SignUp extends React.Component {
             db.collection("users").doc(authData.user.uid).set({
                 name: this.state.name
             }).then(() => {
-                window.location.href = '/login'
+                this.setState({succsess:true})
             })
         }, (error) => {
             this.setState({error: error.message})
@@ -45,6 +45,11 @@ export default class SignUp extends React.Component {
     }
 
     render() {
+        if(this.state.succsess) {
+            return(<Redirect to='/login'/>)
+        }
+
+
         return (
             <Container component="main" maxWidth="xs">
                 <p>{this.state.error}</p>

@@ -1,11 +1,15 @@
-import firebase from 'firebase'
+import firebase from 'firebase';
+import {Redirect} from "react-router-dom";
+import React from "react";
+
 
 function Logout() {
-    return firebase.auth().signOut().then(() => {
+    firebase.auth().signOut().then(() => {
         window.localStorage.clear();
-        window.location.href = '/login';
     }).catch((err) => {
-    })
+    });
+
+    return (<Redirect to='/login'/>)
 }
 
 

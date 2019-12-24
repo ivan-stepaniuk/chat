@@ -105,7 +105,7 @@ class Chat extends React.Component {
                                    name='msg'
                                    onChange={this.handleInputChange}
                                    autoFocus={true}
-                                   autocomplete={false}
+                                   autocCmplete={false}
                         />
                         <Button variant="outlined" className='send-button' onClick={this.sendMessage}>
                             Send

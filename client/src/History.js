@@ -14,13 +14,8 @@ class History extends React.Component {
         this.getMessages().then(messages => {
             this.setState({messages: messages.reverse()});
         });
-        const authorized = window.localStorage.getItem('authorized');
 
-        if (!authorized) {
-            window.location.href = '/login';
-        }
-
-        this.state = {
+         this.state = {
             messages: [],
             userName: window.localStorage.getItem('name'),
             authorized: window.localStorage.getItem('authorized'),

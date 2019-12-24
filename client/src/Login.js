@@ -43,7 +43,7 @@ class Login extends React.Component {
                     if (user) {
                         window.localStorage.setItem('authorized', true);
                         window.localStorage.setItem('name', user.name);
-                        window.location.href = '/chat';
+                        this.setState({authorized: true})
                     }
                 })
             }).catch((err) => {
@@ -51,13 +51,9 @@ class Login extends React.Component {
         })
     }
 
-    goToChat() {
-        window.location.href = '/chat';
-    }
-
     render() {
 
-        if (this.state.user) {
+        if (this.state.authorized) {
             return (
                 <Redirect to='/chat'/>
             )
@@ -119,8 +115,8 @@ class Login extends React.Component {
                 <br/>
                 <div className="align-center">
                     <p>or you can chat as anonymous</p>
-                    <Button variant="outlined" color="primary" onClick={this.goToChat}>
-                        Go to chat
+                    <Button variant="outlined" color="primary">
+                       <Link href="/chat">Go to Chat</Link>
                     </Button>
                 </div>
             </Container>
